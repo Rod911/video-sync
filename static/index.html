@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Video Player</title>
+
+	<link rel="stylesheet" href="./css/reset.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
+		integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+	<div class="container-lg">
+		<div class="home-page">
+			<div class="party-links">
+				<button class="party-btn" data-target="#join-form">Join a Party</button>
+				<div class="party-divider">OR</div>
+				<button class="party-btn" data-target="#create-form">Create a Party</button>
+			</div>
+			<div class="party-forms">
+				<form class="party-form" id="join-form">
+					<div class="form-group">
+						<label for="user">Your Name</label>
+						<input type="text" name="user" id="user" required>
+					</div>
+					<div class="form-group">
+						<label for="room">Party Code</label>
+						<input type="text" name="room" id="room" required>
+					</div>
+					<input type="hidden" name="action" value="join">
+					<button type="submit">Join</button>
+				</form>
+				<form class="party-form" id="create-form">
+					<div class="form-group">
+						<label for="user">Your Name</label>
+						<input type="text" name="user" id="user" required>
+					</div>
+					<div class="form-group">
+						<label for="name">Party/Video Name</label>
+						<input type="text" name="name" id="name" required>
+					</div>
+					<input type="hidden" name="action" value="create">
+					<button type="submit">Create</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="./script.js"></script>
+</body>
+
+</html>

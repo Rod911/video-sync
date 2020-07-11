@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Video Player</title>
+
+	<link rel="stylesheet" href="./css/reset.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
+		integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+	<div class="container-lg">
+		<div class="player-page">
+			<div class="party-form">
+				<h4>Room: <span id="room-name">--</span></h4>
+				<h4>Control: <span id="room-owner">--</span></h4>
+				<h4>Code: <span id="room-code">--</span></h4>
+			</div>
+			<form id="video-form">
+				<div class="form-group">
+					<label for="input-video">Video File:</label>
+					<input type="file" name="input-video" id="input-video" accept="video/mp4,video/x-m4v,video/*">
+				</div>
+			</form>
+			<div id="video-player" class="video-player">
+				<div class="video-wrapper" id="video-wrapper">
+					<video id="video" class="video"></video>
+				</div>
+				<div class="controls">
+					<div class="buttons">
+						<div class="btn-group left-actions">
+							<button class="player-btn" id="play-btn"></button>
+							<div id="player-timer" class="clock">
+								<span class="elapsed">--</span> / <span class="total">--</span>
+							</div>
+							<button class="player-btn" id="rev-btn" title="Rewind 10s"></button>
+							<button class="player-btn" id="for-btn" title="Forward 10s"></button>
+						</div>
+						<div class="btn-group right-actions">
+							<button class="player-btn" id="full-scr"></button>
+						</div>
+					</div>
+					<div id="progress-bar" class="progress-bar">
+						<span class="progress" style="width: 0%"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="./player.js"></script>
+</body>
+
+</html>

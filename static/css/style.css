@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+body {
+	background-color: #fafafa;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.container-lg {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	padding: 1rem;
+}
+
+.party-links {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.party-form {
+	margin-top: 20px;
+	padding: 20px;
+	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	background-color: #fff;
+}
+
+.form-group+.form-group {
+	margin-top: 10px;
+}
+
+.form-group label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+.form-group input {
+	display: block;
+	width: 100%;
+	padding: 3px 8px;
+	border-radius: 3px;
+	border: 1px solid #dadada;
+	line-height: 1.6;
+}
+
+.party-form button {
+	display: block;
+	width: 100%;
+	margin-top: 20px;
+	padding: 10px;
+	border: none;
+	border-radius: 3px;
+	background-color: rebeccapurple;
+	color: #fff;
+	font-size: 1rem;
+}
+
+.party-btn {
+	font-size: 1.6rem;
+	border: none;
+	background-color: rgb(97, 97, 231);
+	border-radius: 0.3rem;
+	padding: 0.5rem 1rem;
+	color: #fff;
+	box-shadow: 0.2rem 0.3rem 0.8rem rgba(0, 0, 0, 0.1);
+	transition: ease-in-out 0.25s box-shadow;
+}
+
+.party-btn:focus {
+	outline: none;
+	box-shadow: 0.2rem 0.3rem 0.8rem rgba(0, 0, 0, 0.1), 0 0 0 0.2rem rgba(97, 97, 231, 0.3);
+}
+
+.party-divider {
+	padding: 1.5rem 0;
+}
+
+.party-forms form {
+	width: 350px;
+	max-width: 100%;
+	display: none;
+}
+
+.party-forms form.active {
+	display: block;
+}
+
+.player-page {
+	width: 1000px;
+	max-width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.player-page .party-form,
+.player-page form {
+	margin-bottom: 20px;
+	width: 500px;
+	max-width: 100%;
+	background-color: #fff;
+	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	border-radius: 5px;
+}
+
+.video-player {
+	width: 1200px;
+	max-width: 100%;
+	position: relative;
+	box-shadow: 0.1rem 0.3rem 1rem rgba(85, 85, 85, 0.7);
+	border-radius: 4px;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	display: none;
+}
+
+.player-page.selected .video-player {
+	display: block;
+}
+
+.player-page.selected #video-form {
+	display: none;
+}
+
+.video-wrapper {
+	position: relative;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.video-wrapper::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	background-color: #000;
+	transition: ease-in-out 0.25s opacity;
+	z-index: 1;
+	pointer-events: none;
+}
+
+.video-player.popup-active .video-wrapper::after {
+	opacity: 0.5;
+}
+
+.video {
+	width: 100%;
+	height: 100%;
+	display: block;
+	pointer-events: none;
+	position: relative;
+	z-index: 0;
+}
+
+.controls {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	display: flex;
+	background-color: rgba(0, 0, 0, 0);
+	transition: ease-in-out 0.25s background-color;
+	transition-delay: 1.5s;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.buttons {
+	padding: 8px;
+	transform: translateY(100%);
+	transition: ease-in-out 0.25s;
+	opacity: 0;
+	transition-property: transform, opacity;
+	transition-delay: inherit;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.buttons .btn-group {
+	display: flex;
+	align-items: center;
+}
+
+.buttons .player-btn {
+	background: none;
+	cursor: pointer;
+	outline: none;
+	border: none;
+	padding: 5px;
+	font-size: 28px;
+}
+
+.buttons .player-btn::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 600;
+	width: 1em;
+	height: 1em;
+	display: block;
+	font-size: 1em;
+	color: #fff;
+	-webkit-font-smoothing: antialiased;
+}
+
+#play-btn::before {
+	content: "\f144";
+}
+
+#rev-btn::before {
+	content: "\f100";
+}
+
+#for-btn::before {
+	content: "\f101";
+}
+
+#video-player.playing #play-btn::before {
+	content: "\f28b";
+}
+
+#full-scr {
+	font-size: 24px;
+}
+
+#full-scr::before {
+	content: "\f065";
+}
+
+#video-player.full-scr #full-scr::before {
+	content: "\f066";
+}
+
+#video-player .clock {
+	display: inline-block;
+	color: #fff;
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+.progress-bar {
+	height: 6px;
+	position: relative;
+	background-color: rgba(85, 85, 85, 0.5);
+	margin-top: 4px;
+	transform-origin: bottom;
+	transition: ease-in-out 0.25s;
+	transition-property: transform, background-color;
+	transition-delay: inherit;
+}
+
+.progress-bar>.progress {
+	width: 0;
+	display: block;
+	margin: 0;
+	height: 100%;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+	background-color: rgb(255, 94, 0);
+	background-image: linear-gradient(center bottom,
+			rgb(255, 94, 0) 37%,
+			rgb(243, 126, 59) 69%);
+	box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
+		inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+	position: relative;
+	overflow: hidden;
+	transition: linear 0.25s width;
+}
+
+.video-player:hover .controls,
+.video-player:not(.playing) .controls {
+	background-color: rgba(0, 0, 0, 0.5);
+	transition-delay: 0s;
+}
+
+.video-player:hover .buttons,
+.video-player:not(.playing) .buttons {
+	transform: translateY(0);
+	opacity: 1;
+	transition-delay: 0s;
+}
+
+.video-player:hover .progress-bar,
+.video-player:not(.playing) .progress-bar {
+	transform: scaleY(1.8);
+	background-color: rgb(85, 85, 85);
+	transition-delay: 0s;
+}
+
+.video-player.inactive.playing {
+	cursor: none;
+}
+
+.video-player.inactive.playing .progress-bar {
+	transform: scaleY(0);
+	transition-delay: 0s;
+}
+
+.video-player.inactive.playing .buttons {
+	transform: translateY(100%);
+}
+
+.video-player.inactive.playing .controls {
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.video-player.no-controls #play-btn,
+.video-player.no-controls #rev-btn,
+.video-player.no-controls #for-btn {
+	display: none;
+}
